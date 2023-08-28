@@ -18,7 +18,8 @@ class UserController extends Controller
         $user->birthdate = $req->input('birthdate');
         $user->password = Hash:: make( $req->input('password'));
         $user->save();
-        return $user; 
+        return response()->json(['isvalid' => $isvalid, $user]);
+        //return $user; 
     }
 
     function login(Request $request)
